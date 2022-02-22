@@ -8,12 +8,20 @@
 <body>
 
 <script>
-var last;
-var term = $('body').terminal($.noop, {
-    prompt: '>>> ',
-    menu: function() {
-        this.menu = "testing menu";
-    }
+$(function() {
+   $('#terminal').terminal({
+      open: function(value) {
+         this.echo("open: " + value);
+      },
+      sub: {
+         get: function(arg) {
+             this.echo("sub.get: " + arg);
+         }
+      },
+      close: function(arg1, arg2) {
+          this.echo("close: " + arg1 + " " + arg2);
+      }
+   });
 });
 </script>
 </body>
