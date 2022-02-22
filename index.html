@@ -8,20 +8,62 @@
 <body>
 
 <script>
-    $(function() {
-        $('body').terminal("service.py", {
-            prompt: "[[;red;]>>> ]"
-        });
-    });
-
-    term.set_prompt(function(set_prompt) {
-        if (this.get_token()) {
-            set_prompt(this.login_name() + '@server$ ');
-        } else {
-            set_prompt('guest@server$ ');
+var last;
+var term = $('body').terminal($.noop, {
+    echoCommand: false,
+    keymap: {
+        'ENTER': function(e, original) {
+            var str;
+            if (!last) {
+                str = this.get_prompt() + this.get_command();
+            } else {
+                var str = last + prompt + this.get_command();
+                last = '';
+            }
+            this.echo(str);
+            original(e);
         }
-    });
-
+    },
+    prompt: '>>> '
+});
+var prompt = term.get_prompt();
+(function(echo) {
+    term.echo = function(arg, options) {
+        var settings = $.extend({
+            newline: true
+        }, options);
+        if (!prompt) {
+            prompt = this.get_prompt();
+        }
+        if (settings.newline === false) {
+            // this probably can be simplify because terminal handle
+            // newlines in prompt
+            last += arg;
+            arg += this.get_prompt();
+            var arr = arg.split('\n');
+            var last_line;
+            if (arr.length === 1) {
+                last_line = arg;
+            } else {
+                echo(arr.slice(0, -1).join('\n'), options);
+                last_line = arr[arr.length - 1];
+            }
+            this.set_prompt(last_line);
+        } else {
+            if (prompt) {
+                this.set_prompt(prompt);
+            }
+            if (last) {
+                echo(last + arg, options);
+            } else {
+                echo(arg, options);
+            }
+            last = '';
+            prompt = '';
+        }
+    };
+})(term.echo);
+        
 </script>
 </body>
 
