@@ -13,8 +13,15 @@
 $(function() {
    var term = $('body').terminal(
         {
-            open: function(value) {
-                this.echo("open: " + value);
+            menu: function() {
+                var html = "<ul> \
+                    <li><a href='#' onclick='show_menu()'>Menu</a></li> \
+                    <li><a href='#' onclick='show_help()'>Help</a></li> \
+                    <li><a href='#' onclick='show_about()'>About</a></li> \
+                    <li><a href='#' onclick='show_exit()'>Exit</a></li> \
+                </ul>";
+                
+                this.echo($(html));
             },
             sub: {
                 get: function(arg) {
