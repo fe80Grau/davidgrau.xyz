@@ -16,13 +16,14 @@ $(function() {
       sub: {
          get: function(arg) {
              this.echo("sub.get: " + arg);
-             this.echo("<p>Hello <strong>World</strong></p>");
          }
       },
       close: function(arg1, arg2) {
           this.echo("close: " + arg1 + " " + arg2);
-      }
-   });
+      },
+   }, term);
+
+   term.echo('<p>Hello <strong>World</strong></p>');
 });
 </script>
 </body>
