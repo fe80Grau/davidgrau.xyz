@@ -10,7 +10,14 @@
 
 <script>
 figlet.defaults({ fontPath: 'https://unpkg.com/figlet/fonts/' });
-
+function render(term, text, font) {
+    const cols = term.cols();
+    return figlet.textSync(text, {
+        font: font || 'Standard',
+        width: cols,
+        whitespaceBreak: true
+    });
+}
 $(function() {
    var term = $('body').terminal(
         {
