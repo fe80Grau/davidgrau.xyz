@@ -11,41 +11,6 @@
 $(function() {
    var term = $('body').terminal(
         {
-        renderHandler: function(obj) {
-        // render JSX object using React
-            if (React.isValidElement(obj)) {
-                    var node = $('<div/>');
-                    ReactDOM.render(
-                        obj, 
-                        node[0]
-                    );
-                    // return DOM node instead of jQuery
-                    // jQuery Terminal use node.clone(true, true)
-                    // that work with jQuery events but break for React
-                    return node[0];
-                    /*
-                    // alternative
-                    this.echo(node);
-                    return false;
-                    */
-                }
-                if (obj instanceof Foo) {
-                    return $(`<div><input value="${obj.x}"/></div>`).css('padding', '10px 0')
-                }
-                if ($.isPlainObject(obj)) {
-                    /*
-                    var node = $('<div>' + JSON.stringify(obj) + '</div>');
-                    node.click(function() {
-                        term.echo(JSON.stringify(obj));
-                    });
-                    return node;
-                    */
-                    // TODO: test events on remove
-                    return $('<div/>').renderJSON(obj);
-                }
-            }
-        },
-        {
             open: function(value) {
                 this.echo("open: " + value);
             },
@@ -60,7 +25,7 @@ $(function() {
         }
    );
 
-   term.echo('<p>Hello <strong>World</strong></p>');
+   term.echo($('<h1 id="txtA"></h1>'));
 });
 </script>
 </body>
