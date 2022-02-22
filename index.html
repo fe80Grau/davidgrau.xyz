@@ -1,11 +1,28 @@
 <!DOCTYPE html>
 <html>
-
-<head></head>
-
+<head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/jquery.terminal@2.x.x/js/jquery.terminal.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/jquery.terminal@2.x.x/css/jquery.terminal.min.css"/>
+</head>
 <body>
-    <h1>Hello World</h1>
-    <h2>Test</h2>
+
+<script>
+    $(function() {
+        $('body').terminal("service.py", {
+            prompt: "[[;red;]>>> ]"
+        });
+    });
+
+    term.set_prompt(function(set_prompt) {
+        if (this.get_token()) {
+            set_prompt(this.login_name() + '@server$ ');
+        } else {
+            set_prompt('guest@server$ ');
+        }
+    });
+
+</script>
 </body>
 
 </html>
