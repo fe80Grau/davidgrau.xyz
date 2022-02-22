@@ -9,7 +9,7 @@
 
 <script>
 $(function() {
-   $('body').terminal({
+   var term = $('body').terminal({
       open: function(value) {
          this.echo("open: " + value);
       },
@@ -21,7 +21,7 @@ $(function() {
       close: function(arg1, arg2) {
           this.echo("close: " + arg1 + " " + arg2);
       },
-   }, term);
+   });
 
    term.echo('<p>Hello <strong>World</strong></p>');
 });
