@@ -14,14 +14,9 @@ $(function() {
    var term = $('body').terminal(
         {
             menu: function() {
-                var html = "<ul> \
-                    <li><a href='#' onclick='show_menu()'>Menu</a></li> \
-                    <li><a href='#' onclick='show_help()'>Help</a></li> \
-                    <li><a href='#' onclick='show_about()'>About</a></li> \
-                    <li><a href='#' onclick='show_exit()'>Exit</a></li> \
-                </ul>";
-                
-                this.echo($(html));
+                this.echo("contacto");
+                this.echo("proyectos");
+                this.echo("blog");
             },
             sub: {
                 get: function(arg) {
