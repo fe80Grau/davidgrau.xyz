@@ -3,11 +3,15 @@
 <head>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://unpkg.com/jquery.terminal@2.x.x/js/jquery.terminal.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/figlet/lib/figlet.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/jquery.terminal@2.x.x/css/jquery.terminal.min.css"/>
 </head>
 <body>
 
 <script>
+figlet.defaults({ fontPath: 'https://unpkg.com/figlet/fonts/' });
+figlet.preloadFonts(['Standard', 'Slant'], ready);
+
 $(function() {
    var term = $('body').terminal(
         {
@@ -26,7 +30,11 @@ $(function() {
         {
             name : 'David Grau Martínez',
             completion : true,
-            grettings : 'David Grau Martínez'
+            grettings : false,
+            onInit() {
+                this.echo(() => render(this, 'Figlet Demo', 'Slant') +
+                    `\n[[;rgba(255,255,255,0.99);]David Grau ${$.terminal.version}].\n`)
+            }
         }
    );
 
