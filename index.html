@@ -24,7 +24,10 @@ var term = $('body').terminal($.noop, {
             original(e);
         }
     },
-    prompt: '>>> '
+    prompt: '>>> ',
+    menu: function() {
+        this.menu = "testing menu";
+    }
 });
 var prompt = term.get_prompt();
 (function(echo) {
