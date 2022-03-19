@@ -11,12 +11,17 @@
 <script>
 
 $(function() {
-   var term = $('body').terminal(
+    const hello = ' <h1 id="txtA">David Grau Martínez.</h1><br/> \
+                    <h2>Gestor de publicidad digital, especialista en atribución y desarrollador.</h2> <br/> \
+                    <p>Desarrollador apasionado y especializado en Marketing Digital. Actualmente ejerzo de Squad Leader y Director de Marketing Digital en la Fundación Universitaria Iberoamericana \
+                    Coordinando estrategias para campañas digitales y midiendo resultados, entendiendo y mejorando el software empleado para objetivos macros en la lógica de captación de clientes, \
+                    organizando equipos para el desarrollo de software y configuración de campañas publicitarias.</p>';
+
+    var term = $('body').terminal(
         {
             menu: function() {
                 this.echo("contacto");
                 this.echo("proyectos");
-                this.echo("blog");
             },
             sub: {
                 get: function(arg) {
@@ -31,10 +36,10 @@ $(function() {
             name : 'David Grau Martínez',
             greetings : false,
             onInit() {
-                this.echo($('<h1 id="txtA">David Grau Martínez.</h1> <br/> <h2>Administrador de publicidad digital, especialista en atribución y desarrollador.</h2>'))
+                this.echo($(hello))
             }
         }
-   );
+    );
 });
 </script>
 </body>
