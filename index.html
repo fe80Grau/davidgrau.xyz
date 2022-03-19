@@ -25,7 +25,8 @@ $(function() {
                     <h2>Formación:</h2> <br/> \
                     <h2>Comandos de navegación:</h2> \
                     <p><blockquote>portfolio : Devuelve un listado de los proyectos que he realizado y he podido documentar públicamente.</blockquote></p>\
-                    <p><blockquote>contacto : Devuelve mi información de contacto.</p>';
+                    <p><blockquote>contacto : Devuelve mi información de contacto.</p> \
+                    <p><blockquote>cls : Limpia los comandos y resultados introducidos.</p>';
 
     var term = $('body').terminal(
         {
@@ -49,6 +50,7 @@ $(function() {
         {
             name : 'David Grau Martínez',
             greetings : false,
+            clear : false,
             onInit() {
                 this.echo($(hello))
             }
