@@ -87,6 +87,7 @@ $(function() {
             return Math.max.apply(Math, col);
         });
         // column padding
+        console.log(lengths);
         array = array.map(function(row) {
             return '| ' + row.map(function(item, i) {
                 console.log(item);
@@ -105,6 +106,7 @@ $(function() {
         var sep = '+' + lengths.map(function(length) {
             return new Array(length + 3).join('-');
         }).join('+') + '+';
+
         if (header) {
             return sep + '<br/>' + array[0] + '<br/>' + sep + '<br/>' +
                 array.slice(1).join('<br/>') + '<br/>' + sep;
