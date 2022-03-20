@@ -182,7 +182,7 @@ $(function() {
     }
 
     function view(titulo, data){
-        var r = '<h2>'+titulo+':</h2><br/>';
+        var r = '<br/> <h2>'+titulo+':</h2><br/>';
         r += ascii_table(data, false);
         r += '<br/>';
         return r;
@@ -194,7 +194,7 @@ $(function() {
                 this.echo($(view('Comandos de navegación', comandos)));
             },
             aptitudes: function(){
-                this.echo($(view('Comandos de navegación', comandos)));
+                this.echo($(view('Aptitudes', aptitudes)));
             },
             close: function(arg1, arg2) {
                 this.echo("close: " + arg1 + " " + arg2);
