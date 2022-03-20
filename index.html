@@ -89,7 +89,7 @@ $(function() {
         // column padding
         array = array.map(function(row) {
             return '| ' + row.map(function(item, i) {
-                var size = item.length;
+                var size = row[0].length;
                 if (item.match(/\t/g)) {
                     // tab is 4 spaces
                     size += item.match(/\t/g).length*3;
