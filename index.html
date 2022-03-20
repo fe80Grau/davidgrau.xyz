@@ -89,13 +89,14 @@ $(function() {
         // column padding
         array = array.map(function(row) {
             return '| ' + row.map(function(item, i) {
-                var size = row.length;
+                console.log(item);
+                var size = item.length;
                 if (item.match(/\t/g)) {
                     // tab is 4 spaces
-                    size += row[1].match(/\t/g).length*3;
+                    size += item.match(/\t/g).length*3;
                 }
                 if (size < lengths[i]) {
-                    item += new Array(lengths[1] - size + 1).join(' ');
+                    item += new Array(lengths[i] - size + 1).join(' ');
                 }
                 return item;
             }).join(' | ') + ' |';
@@ -103,7 +104,6 @@ $(function() {
 
         var sep = '+' + lengths.map(function(length) {
             return new Array(length + 3).join('-');
-            
         }).join('+') + '+';
         if (header) {
             return sep + '<br/>' + array[0] + '<br/>' + sep + '<br/>' +
