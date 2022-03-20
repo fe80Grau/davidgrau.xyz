@@ -28,11 +28,76 @@ $(function() {
                     <p>Tengo inquietudes, ser squad leader o director no implica que todo mi trabajo consista en coordinar. Pico código, configuro campañas, investigo y aprendo diariamente junto a mi euqipo</p> <br/> \
                     <h2>Aptitudes:</h2> <br/> \
                     <h2>Experiencia laboral:</h2> <br/> \
-                    <h2>Formación:</h2> <br/> \
+                    <h2>Formación:</h2> <br/> '+ascii_table(skills,siklls_header)+'\
                     <h2>Comandos de navegación:</h2> \
                     <p><blockquote>portfolio : Devuelve un listado de los proyectos que he realizado y he podido documentar públicamente.</blockquote></p>\
                     <p><blockquote>contacto : Devuelve mi información de contacto.</blockquote></p> \
                     <p><blockquote>cls : Limpia los comandos y resultados introducidos.</blockquote></p>';
+
+    const skills = [['test1', 'test2', 'test3'],['test4', 'test5', 'test6']]
+    const siklls_header = ['Head1', 'Head2', 'Head3']
+
+    function ascii_table(array, header) {
+        if (!array.length) {
+            return '';
+        }
+        for (var i = array.length - 1; i >= 0; i--) {
+            var row = array[i];
+            var stacks = [];
+            for (var j = 0; j < row.length; j++) {
+                var new_lines = row[j].toString().split("\n");
+                row[j] = new_lines.shift();
+                stacks.push(new_lines);
+            }
+            var new_rows_count = Math.max.apply(Math, stacks.map(function(column) {
+                return column.length;
+            }));
+            for (var k = new_rows_count - 1; k >= 0; k--) {
+                array.splice(i + 1, 0, stacks.map(function(column) {
+                    return column[k] || "";
+                }));
+            }
+        }
+
+        var lengths = array[0].map(function(_, i) {
+            var col = array.map(function(row) {
+                if (row[i] != undefined) {
+                    var len = wcwidth(row[i]);
+                    if (row[i].match(/\t/g)) {
+                        // tab is 4 spaces
+                        len += row[i].match(/\t/g).length*3;
+                    }
+                    return len;
+                } else {
+                    return 0;
+                }
+            });
+            return Math.max.apply(Math, col);
+        });
+        // column padding
+        array = array.map(function(row) {
+            return '| ' + row.map(function(item, i) {
+                var size = wcwidth(item);
+                if (item.match(/\t/g)) {
+                    // tab is 4 spaces
+                    size += item.match(/\t/g).length*3;
+                }
+                if (size < lengths[i]) {
+                    item += new Array(lengths[i] - size + 1).join(' ');
+                }
+                return item;
+            }).join(' | ') + ' |';
+        });
+        var sep = '+' + lengths.map(function(length) {
+            return new Array(length + 3).join('-');
+        }).join('+') + '+';
+        if (header) {
+            return sep + '\n' + array[0] + '\n' + sep + '\n' +
+                array.slice(1).join('\n') + '\n' + sep;
+        } else {
+            return sep + '\n' + array.join('\n') + '\n' + sep;
+        }
+    }
 
     var term = $('body').terminal(
         {
