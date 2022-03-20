@@ -95,15 +95,15 @@ $(function() {
                     size += item.match(/\t/g).length*3;
                 }
                 if (size < lengths[i]) {
-                    item += new Array(lengths[i] - size + 1).join(' ');
+                    item += new Array(lengths[1] - size + 1).join(' ');
                 }
                 return item;
             }).join(' | ') + ' |';
         });
 
         var sep = '+' + lengths.map(function(length) {
-            return new Array(lengths[1] + 3).join('-');
-
+            return new Array(length + 3).join('-');
+            
         }).join('+') + '+';
         if (header) {
             return sep + '<br/>' + array[0] + '<br/>' + sep + '<br/>' +
