@@ -95,7 +95,7 @@ $(function() {
                     size += item.match(/\t/g).length*3;
                 }
                 if (size < lengths[i]) {
-                    item += new Array(lengths[0] - size + 1).join(' ');
+                    item += new Array(lengths[i] - size + 1).join(' ');
                 }
                 return item;
             }).join(' | ') + ' |';
