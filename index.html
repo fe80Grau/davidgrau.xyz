@@ -98,9 +98,9 @@ $(function() {
         }).join('+') + '+';
         if (header) {
             return sep + '<br/>' + array[0] + '<br/>' + sep + '<br/>' +
-                array.slice(1).join('\n') + '<br/>' + sep;
+                array.slice(1).join('<br/>') + '<br/>' + sep;
         } else {
-            return sep + '<br/>' + array.join('\n') + '<br/>' + sep;
+            return sep + '<br/>' + array.join('<br/>') + '<br/>' + sep;
         }
     }
 
