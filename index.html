@@ -91,6 +91,18 @@ $(function() {
         ['*Empresa familiar', 'NATURDESMA', 'Administrador de sistemas y desarrollador']
     ];
 
+    const comandos = [
+        ['aptitudes', 'Devuelve un listado con las aptiudes'],
+        ['formacion', 'Devuelve un listado la formación'],
+        ['experiencia', 'Devuelve un listado con la experiencia laboral'],
+        ['experiencia {empresa}', 'Devuelve más información sobre la experiencia de una empresa en específico. Ej: experiencia funiber'],
+        ['portfolio', 'Devuelve un listado de los proyectos realizados y documentados públicamente'],
+        ['portfolio {proyecto}', 'Devuelve más información sobre un proyecto en específico. Ej: porfolio eprints'],
+        ['contacto', 'Devuelve la información de contacto'],
+        ['cls', 'Limpia los comandos y resultados introducios']
+
+    ]
+
     const hello = ' <h1 id="txtA">David Grau Martínez.</h1><br/> \
                     <h2>Gestor de publicidad digital, especialista en atribución y desarrollador.</h2> <br/> \
                     <p>Nacido en Barcelona, 1992. Desarrollador apasionado y especializado en Marketing Digital. Actualmente ejerzo de Squad Leader y Director de Marketing Digital en la Fundación Universitaria Iberoamericana; \
@@ -100,15 +112,7 @@ $(function() {
                     la clasificación de la información y el procesamiento de la misma, para realizar un correcto análisis de la información. Los datos han de estar asegurdados y han de respetar la layes. \
                     Una figura que entienda el macro de todos estos conceptos es capaz de potenciar los resultados de cualquier estrategia publicitaria sin necesidad de invertir en herramientas excesivamente caras.</p> \
                     <p>Tengo inquietudes, ser squad leader o director no implica que todo mi trabajo consista en coordinar y dirigir. Pico código, configuro campañas, investigo y aprendo diariamente junto a mi euqipo</p> <br/> \
-                    <h2>Comandos de navegación:</h2> \
-                    <p><blockquote>aptitudes : Devuelve un listado con la aptitudes.</blockquote></p>\
-                    <p><blockquote>formacion : Devuelve un listado con la formación.</blockquote></p>\
-                    <p><blockquote>experiencia : Devuelve un listado con la experiencia laboral.</blockquote></p>\
-                    <p><blockquote>experiencia {empresa} : Devuelve más información sobre la experiencia de una empresa en específico. Ej: experiencia funiber</blockquote></p>\
-                    <p><blockquote>portfolio : Devuelve un listado de los proyectos que he realizado y he podido documentar públicamente.</blockquote></p>\
-                    <p><blockquote>portfolio {proyecto} : Devuelve más información sobre un proyecto en específico. Ej: portfolio eprints </blockquote></p>\
-                    <p><blockquote>contacto : Devuelve mi información de contacto.</blockquote></p> \
-                    <p><blockquote>cls : Limpia los comandos y resultados introducidos.</blockquote></p>';
+                    <h2>Comandos de navegación:</h2>'+view('Comandos de navegación', comandos);
 
 
     function ascii_table(array, header) {
@@ -177,16 +181,19 @@ $(function() {
         }
     }
 
+    function view(titulo, data){
+        var r = '<h2>'+titulo+'</h2><br/>';
+        r += ascii_table(data, false);
+        return r;
+    }
+
     var term = $('body').terminal(
         {
-            menu: function() {
-                this.echo("contacto");
-                this.echo("proyectos");
+            help: function() {
+                this.echo(view('Comandos de navegación', comandos));
             },
-            sub: {
-                get: function(arg) {
-                    this.echo("sub.get: " + arg);
-                }
+            aptitudes: function(){
+                this.echo(view('Aptitudes', aptitudes));
             },
             close: function(arg1, arg2) {
                 this.echo("close: " + arg1 + " " + arg2);
