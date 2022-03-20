@@ -18,7 +18,7 @@
 
 $(function() {
 
-    const skills = [['test1']]
+    const skills = ['test1']
 
     const hello = ' <h1 id="txtA">David Grau Martínez.</h1><br/> \
                     <h2>Gestor de publicidad digital, especialista en atribución y desarrollador.</h2> <br/> \
@@ -38,7 +38,7 @@ $(function() {
                     <p><blockquote>cls : Limpia los comandos y resultados introducidos.</blockquote></p>';
 
 
-    function ascii_table(array, True) {
+    function ascii_table(array, header) {
         if (!array.length) {
             return '';
         }
