@@ -18,6 +18,56 @@
 
 $(function() {
 
+    const skills = [
+        ['Dirección', 'Planificación de metodologías y desarrollo ágil', 'Avanzado'],
+        ['Dirección', 'Dirección de estrategias y equipos de publicidad digital','Avanzado'],
+        ['Marketing Digital', 'Inversión en publicidad digital', 'Avanzado'],
+        ['Marketing Digital', 'Google Ads [web, editor y API]', 'Avanzado'],
+        ['Marketing Digital', 'Bing Ads [web]', 'Avanzado'],
+        ['Marketing Digital', 'Twitter Ads [web]', 'Medio'],
+        ['Marketing Digital', 'Meta/Facebook Ads [web y API]', 'Avanzado'],
+        ['Marketing Digital', 'Google Analytcs [web y API]', 'Avanzado'],
+        ['Marketing Digital', 'Google Tag Manager', 'Avanzado'],
+        ['Marketing Digital', 'SEMRush', 'Medio'],
+        ['Marketing Digital', 'Google Data Studio', 'Avanzado'],
+        ['Marketing Digital', 'Matomo [implementación y cofiguración]', 'Avanzado'],
+        ['Marketing Digital Académico', 'ePrints [implementación y configuración]', 'Avanzado'],
+        ['Marketing Digital Académico', 'Altmetric [web y API]', 'Avanzado'],
+        ['DevOps', 'Google Cloud Kubernetes', 'Medio'],
+        ['Bases de datos', 'SQL & PL/SQL', 'Avanzado'],
+        ['Bases de datos', 'ArangoDB', 'Bajo'],
+        ['Bases de datos', 'DBase/FoxPro', 'Avanzado'],
+        ['Bases de datos', 'Google Cloud Datastore/Firestore', 'Medio'],
+        ['Bases de datos', 'Google Cloud BigQuery', 'Bajo'],
+        ['DevOps', 'Google Cloud Kubernetes', 'Medio'],
+        ['DevOps', 'Google Cloud Run', 'Medio'],
+        ['DevOps', 'Docker', 'Medio'],
+        ['Control de versiones', 'Github', 'Medio'],
+        ['Control de versiones', 'Gitlab', 'Medio'],
+        ['Desarrollo Backend', 'PHP', 'Avanzado'],
+        ['Desarrollo Backend', 'PHP-CodeIgniter', 'Medio'],
+        ['Desarrollo Backend', 'C#', 'Medio'],
+        ['Desarrollo Backend', 'Python', 'Medio'],
+        ['Desarrollo Backend', 'JS-NodeJS', 'Medio'],
+        ['Desarrollo Backend', 'PHP-Laravel', 'Bajo'],
+        ['Desarrollo Backend', 'Java', 'Bajo'],
+        ['Análisis de datos', 'Python-Pandas', 'Medio'],
+        ['Análisis de datos', 'Python-Scikit-learn', 'Medio'],
+        ['Análisis de datos', 'Python-Tensorflow', 'Medio'],
+        ['Desarrollo Frontend', 'HTML', 'Avanzado'],
+        ['Desarrollo Frontend', 'CSS', 'Avanzado'],
+        ['Desarrollo Frontend', 'CSS-Bootstrap', 'Medio'],
+        ['Desarrollo Frontend', 'CSS-Tailwind', 'Bajo'],
+        ['Desarrollo Frontend', 'JS', 'Avanzado'],
+        ['Desarrollo Frontend', 'JS-React', 'Bajo'],
+        ['Administración de sistemas', 'Windows Server [Activer Directory, DNS, DFS, WDS...]', 'Avanzado'],
+        ['Administración de sistemas', 'Virtualización con VMWare ESXi e Hyper-V', 'Medio'],
+        ['Administración de sistemas', 'Google G Suite', 'Avanzado'],
+        ['Administración de sistemas', 'SAGE Facturaplus [desarrollo e integraciones web]', 'Avanzado'],
+        ['Técnico de sistemas', 'Diagnósitco y reparación de sistemas informáticos', 'Avanzado']
+
+    ];
+
     const formacion = [
         ['2021', 'Google Partners', 'Certificación Google Ads Search'],
         ['2019', 'Google Partners', 'Google Roundtables Londres'],
@@ -49,7 +99,7 @@ $(function() {
                     la clasificación de la información y el procesamiento de la misma, para realizar un correcto análisis de la información. Los datos han de estar asegurdados y han de respetar la layes. \
                     Una figura que entienda el macro de todos estos conceptos es capaz de potenciar los resultados de cualquier estrategia publicitaria sin necesidad de invertir en herramientas excesivamente caras.</p> \
                     <p>Tengo inquietudes, ser squad leader o director no implica que todo mi trabajo consista en coordinar. Pico código, configuro campañas, investigo y aprendo diariamente junto a mi euqipo</p> <br/> \
-                    <h2>Aptitudes:</h2> <br/> \
+                    <h2>Aptitudes:</h2>'+ascii_table(skills,false)+' <br/> \
                     <h2>Experiencia laboral:</h2>'+ascii_table(experiencia,false)+' <br/><br/>\
                     <h2>Formación:</h2>'+ascii_table(formacion,false)+' <br/> <br/> \
                     <h2>Comandos de navegación:</h2> \
