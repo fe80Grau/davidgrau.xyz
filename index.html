@@ -19,7 +19,7 @@
 $(function() {
 
     const skills = [
-        ['Head 1', 'Head 2', 'Head 3'],
+        ['Header 1', 'Header 2', 'Header 3'],
         ['Value 1', 'Value 2', 'Value 3']
     ]
 
@@ -92,6 +92,7 @@ $(function() {
                 return item;
             }).join(' | ') + ' |';
         });
+
         var sep = '+' + lengths.map(function(length) {
             return new Array(length + 3).join('-');
         }).join('+') + '+';
