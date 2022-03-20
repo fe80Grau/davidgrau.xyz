@@ -64,7 +64,7 @@ $(function() {
         var lengths = array[0].map(function(_, i) {
             var col = array.map(function(row) {
                 if (row[i] != undefined) {
-                    var len = string.length(row[i]);
+                    var len = String.length(row[i]);
                     if (row[i].match(/\t/g)) {
                         // tab is 4 spaces
                         len += row[i].match(/\t/g).length*3;
@@ -79,7 +79,7 @@ $(function() {
         // column padding
         array = array.map(function(row) {
             return '| ' + row.map(function(item, i) {
-                var size = string.length(item);
+                var size = String.length(item);
                 if (item.match(/\t/g)) {
                     // tab is 4 spaces
                     size += item.match(/\t/g).length*3;
