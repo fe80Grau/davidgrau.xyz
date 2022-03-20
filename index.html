@@ -18,8 +18,7 @@
 
 $(function() {
 
-    const skills = [['test1', 'test2', 'test3']]
-    const siklls_header = ['Head1', 'Head2', 'Head3']
+    const skills = [['test1']]
 
     const hello = ' <h1 id="txtA">David Grau Martínez.</h1><br/> \
                     <h2>Gestor de publicidad digital, especialista en atribución y desarrollador.</h2> <br/> \
@@ -32,14 +31,14 @@ $(function() {
                     <p>Tengo inquietudes, ser squad leader o director no implica que todo mi trabajo consista en coordinar. Pico código, configuro campañas, investigo y aprendo diariamente junto a mi euqipo</p> <br/> \
                     <h2>Aptitudes:</h2> <br/> \
                     <h2>Experiencia laboral:</h2> <br/> \
-                    <h2>Formación:</h2> <br/> '+ascii_table(skills,siklls_header)+'\
+                    <h2>Formación:</h2> <br/> '+ascii_table(skills,true)+'\
                     <h2>Comandos de navegación:</h2> \
                     <p><blockquote>portfolio : Devuelve un listado de los proyectos que he realizado y he podido documentar públicamente.</blockquote></p>\
                     <p><blockquote>contacto : Devuelve mi información de contacto.</blockquote></p> \
                     <p><blockquote>cls : Limpia los comandos y resultados introducidos.</blockquote></p>';
 
 
-    function ascii_table(array, header) {
+    function ascii_table(array, True) {
         if (!array.length) {
             return '';
         }
