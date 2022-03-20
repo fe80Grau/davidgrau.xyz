@@ -96,10 +96,10 @@ $(function() {
             return new Array(length + 3).join('-');
         }).join('+') + '+';
         if (header) {
-            return sep + '<br/>' + array[0] + '<br/>' + sep + '\n' +
-                array.slice(1).join('<br/>') + '<br/>' + sep;
+            return sep + '<br/>' + array[0] + '<br/>' + sep + '<br/>' +
+                array.slice(1).join('\n') + '<br/>' + sep;
         } else {
-            return sep + '<br/>' + array.join('<br/>') + '<br/>' + sep;
+            return sep + '<br/>' + array.join('\n') + '<br/>' + sep;
         }
     }
 
