@@ -191,10 +191,10 @@ $(function() {
     var term = $('body').terminal(
         {
             help: function() {
-                this.echo(view('Comandos de navegación', comandos));
+                this.echo($(view('Comandos de navegación', comandos)));
             },
             aptitudes: function(){
-                this.echo(view('Aptitudes', aptitudes));
+                this.echo($(view('Comandos de navegación', comandos)));
             },
             close: function(arg1, arg2) {
                 this.echo("close: " + arg1 + " " + arg2);
