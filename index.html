@@ -112,7 +112,7 @@ $(function() {
                     la clasificación de la información y el procesamiento de la misma, para realizar un correcto análisis de la información. Los datos han de estar asegurdados y han de respetar la layes. \
                     Una figura que entienda el macro de todos estos conceptos es capaz de potenciar los resultados de cualquier estrategia publicitaria sin necesidad de invertir en herramientas excesivamente caras.</p> \
                     <p>Tengo inquietudes, ser squad leader o director no implica que todo mi trabajo consista en coordinar y dirigir. Pico código, configuro campañas, investigo y aprendo diariamente junto a mi euqipo</p> <br/> \
-                    <h2>Comandos de navegación:</h2>'+view('Comandos de navegación', comandos);
+                    '+view('Comandos de navegación', comandos);
 
 
     function ascii_table(array, header) {
@@ -182,8 +182,9 @@ $(function() {
     }
 
     function view(titulo, data){
-        var r = '<h2>'+titulo+'</h2><br/>';
+        var r = '<h2>'+titulo+':</h2><br/>';
         r += ascii_table(data, false);
+        r += '<br/>';
         return r;
     }
 
